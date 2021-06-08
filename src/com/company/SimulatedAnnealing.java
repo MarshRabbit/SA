@@ -18,6 +18,7 @@ public class SimulatedAnnealing {
         return solve(p, t, a, x0, lower, upper);
     }
 
+    // 온도, 냉각률, 초기값, 해의 범위의 최소, 최대
     public double solve(Problem p, double t, double a, double x0, double lower, double upper) {
         Random r = new Random();
         double f0 = p.fit(x0);
@@ -26,8 +27,8 @@ public class SimulatedAnnealing {
         for (int i=0; i<niter; i++) {
             int kt = (int) t;
             for(int j=0; j<kt; j++) {
-                double x1 = r.nextDouble() * (upper - lower) + lower;
-                double f1 = p.fit(x1);
+                double x1 = r.nextDouble() * (upper - lower) + lower; // 이웃해
+                double f1 = p.fit(x1); // 이웃해의 함수값
 
                 if(p.isNeighborBetter(f0, f1)) {
                     x0 = x1;
@@ -36,7 +37,7 @@ public class SimulatedAnnealing {
                 } else {
                     double d = Math.sqrt(Math.abs(f1 - f0));
                     double p0 = Math.exp(-d/t);
-                    if(r.nextDouble() < 0.0001) {
+                    if(r.nextDouble() < p0) {
                         x0 = x1;
                         f0 = f1;
                         hist.add(f0);
