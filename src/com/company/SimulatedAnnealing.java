@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class SimulatedAnnealing {
-    private int niter;
     public ArrayList<Double> hist;
 
-    public SimulatedAnnealing(int niter) {
-        this.niter = niter;
+    public SimulatedAnnealing() {
         hist = new ArrayList<>();
     }
 
@@ -24,7 +22,7 @@ public class SimulatedAnnealing {
         double f0 = p.fit(x0);
         hist.add(f0);
 
-        for (int i=0; i<niter; i++) {
+        while (t > 0.01){
             int kt = (int) t;
             for(int j=0; j<kt; j++) {
                 double x1 = r.nextDouble() * (upper - lower) + lower; // 이웃해
