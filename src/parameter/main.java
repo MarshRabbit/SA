@@ -23,6 +23,7 @@ public class main {
             }
         };
 
-        sa.solve(p, 1000, 0.996, -20000, 20000, X_hat);
+        for (int i = 0; i<20; i++)
+            sa.solve(p, 3000, 0.996, -20000, 20000, X_hat);
     }
 }

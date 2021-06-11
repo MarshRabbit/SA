@@ -72,6 +72,6 @@ public class SimulatedAnnealing {
             }
             t *= a;
         }
-        System.out.println(a0 + "x^3 + " + b0 + "x^2 + " + c0 + "x + " + d0);
+        System.out.printf("%.2fx^3 + %.2fx^2 + %.2fx + %.2f\n", a0, b0, c0, d0);
     }
 }
