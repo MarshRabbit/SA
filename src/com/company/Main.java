@@ -12,7 +12,7 @@ public class Main {
             }
 
             @Override
-            public boolean isNeighborBetter(double f0, double f1) { //최대값 찾
+            public boolean isNeighborBetter(double f0, double f1) { //최대값 찾기
                 return f0 < f1;
             }
         };
